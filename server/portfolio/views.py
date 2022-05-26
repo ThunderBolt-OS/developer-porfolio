@@ -1,22 +1,32 @@
-from django.contrib.auth.models import User, Group
-from rest_framework import viewsets
-from rest_framework import permissions
-from portfolio.serializers import UserSerializer, GroupSerializer
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serializers import ContactSerializer, TestimonialsSerializer
+from .models import Contact, Testimonials
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
+@api_view(['POST'])
+def contact (request):
 
-class GroupViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    contact = Contact.objects.all()
+    serializer = ContactSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        # return Response(serializer.data, status=status.HTTP_202_CREATED)
+    return Response(serializer.data)
+    
+
+# for testing the post api
+@api_view(['GET'])
+def contact_get (request):
+
+    contact = Contact.objects.all()
+    serializer = ContactSerializer(contact, many=True)    
+    return Response(serializer.data)
+
+# to get testimonials data from DB
+@api_view(['GET'])
+def testimonials(request):
+    testimonials = Testimonials.objects.all()
+    serializer = TestimonialsSerializer(testimonials, many=True)
+    return Response(serializer.data)

@@ -1,14 +1,12 @@
-from django.contrib.auth.models import User, Group
 from rest_framework import serializers
+from .models import *
 
-
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class ContactSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'groups']
+        model = Contact
+        fields = '__all__'
 
-
-class GroupSerializer(serializers.HyperlinkedModelSerializer):
+class TestimonialsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Group
-        fields = ['url', 'name']
+        model = Testimonials
+        fields = '__all__'
