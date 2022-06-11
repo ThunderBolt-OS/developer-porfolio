@@ -9,12 +9,12 @@ class Profile(models.Model):
 
 class Education(models.Model):    
     education=models.ForeignKey(Profile,on_delete=models.CASCADE,related_name='education',null=True,blank=True)
-    title = models.CharField(max_length=50)
+    degree = models.CharField(max_length=50, null=False)
     school = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
-    fromDate = models.DateField()
-    toDate = models.DateField()
-    description = models.TextField(max_length=500)
+    fromDate = models.CharField(max_length=30)
+    toDate = models.CharField(max_length=30, null=True)
+    description = models.TextField(max_length=500, null=True)
     gpa = models.CharField(null=True, max_length=3)
 
 class Projects(models.Model):
