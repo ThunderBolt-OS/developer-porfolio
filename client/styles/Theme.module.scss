@@ -2,15 +2,17 @@
 
 $background-color: #E7FDFF;
 
-$box-shadow-top-left-view: 11px 11px 22px #929292, -11px -11px 22px #ffffff;
+$box-shadow-top-left-view:   18px 18px 33px #c9dcde, -18px -18px 33px #ffffff;
 $box-shadow-top-right-view: 11px 11px 22px #929292, 11px -11px 22px #ffffff;
 $box-shadow-bottom-right-view: -11px -11px 22px #929292, 11px 11px 22px #ffffff;
 $box-shadow-bottom-left-view: 11px -11px 22px #929292, -11px 11px 22px #ffffff;
 
-$depression-inMiddle-color: linear-gradient(145deg, #d0e4e6, #f7ffff);
-$elevation-inMiddle-color: linear-gradient(145deg, #f7ffff, #d0e4e6);
+$inset-inMiddle-color: linear-gradient(145deg, #d0e4e6, #f7ffff);
+$outset-inMiddle-color: linear-gradient(145deg, #f7ffff, #d0e4e6);
 
-$total-depression-box-shadow: inset 11px 11px 18px #bbcdcf, inset -11px -11px 18px #ffffff;
+$inset-box-shadow: inset 11px 11px 18px #bbcdcf, inset -11px -11px 18px #ffffff;
+$inset-button-box-shadow: inset 5px 5px 6px #d7ebed,
+inset -5px -5px 6px #f7ffff;
 
 
 
