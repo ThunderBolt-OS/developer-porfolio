@@ -30,8 +30,8 @@ class Experience(models.Model):
     title = models.CharField(max_length=50)
     company = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
-    fromDate = models.DateField()
-    toDate = models.DateField()
+    fromDate = models.CharField(max_length=30, null=False)
+    toDate = models.CharField(max_length=30, null=True)
     description = models.TextField(max_length=500)
 
 class SocialMediaLinks(models.Model):
